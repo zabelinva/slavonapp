@@ -1,0 +1,12 @@
+FROM scratch
+
+ENV SLAVONAPP_LOCAL_HOST 0.0.0.0
+ENV SLAVONAPP_LOCAL_PORT 8080
+ENV SLAVONAPP_LOG_LEVEL 0
+
+EXPOSE $SLAVONAPP_LOCAL_PORT
+
+COPY certs /etc/ssl/
+COPY bin/linux-amd64/slavonapp /
+
+CMD ["/slavonapp"]
